@@ -5,12 +5,33 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
+    android:background="#BDF47D"
     tools:context=".fragment.UpdateProfileFragment">
 
-    <Space
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="20dp"
-        android:layout_marginTop="20dp" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:theme="@style/MyActiobBarTheme">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Edit Profile"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:gravity="center"
+                >
+            </TextView>
+        </androidx.appcompat.widget.Toolbar>
+
+    </LinearLayout>
 
     <EditText
         android:id="@+id/updatePwdET"
@@ -19,7 +40,8 @@
         android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="Password"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:textColor="@color/colorPrimaryDark" />
 
     <EditText
         android:id="@+id/updateFirstNameET"
@@ -28,7 +50,8 @@
         android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="First Name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/colorPrimaryDark" />
 
     <EditText
         android:id="@+id/updateLastNameET"
@@ -37,14 +60,18 @@
         android:layout_marginTop="15dp"
         android:ems="10"
         android:hint="Last Name"
-        android:inputType="textPersonName" />
+        android:inputType="textPersonName"
+        android:textColor="@color/colorPrimaryDark" />
 
     <Button
         android:id="@+id/updateBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:ems="10"
+        android:ems="5"
         android:text="Update"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"
+        android:textStyle="italic" />
 </LinearLayout>

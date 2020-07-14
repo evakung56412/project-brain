@@ -3,12 +3,9 @@
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="#BDF47D"
     android:padding="15dp"
     >
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
 
     <TextView
         android:id="@+id/ideaTitleTV"
@@ -17,7 +14,9 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Title"
-        android:textSize="30sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/ideaContextTV"
@@ -26,7 +25,9 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="sdfadsfadfasdfadfadfadf"
-        android:textSize="25sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/ideaContentTV"
@@ -35,16 +36,19 @@
         android:layout_marginTop="10dp"
         android:gravity="top|left"
         android:text="safafadfasfadfadfasdfadfadsfadfadfadfasdfadfadfadsfasdfadfadfadfadfadfadfadfadfadfadfasdfsdfasdfasfafefdsfsafdfjlfkjfo;ijakdflakfj;iafslkjflkaji;odfjijd;klj;ajsdif;iajfjjfioaj;ejf;djf;ioajdf;iasd"
-        android:textSize="20sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/ideaAuthorTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:text="Author: eva"
-        android:textSize="20sp" />
+        android:gravity="right"
+        android:text="Author : eva"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="italic" />
 
     <Button
         android:id="@+id/followUserBtn"
@@ -54,13 +58,17 @@
         android:layout_marginTop="10dp"
         android:text="Follow"
         android:textAllCaps="false"
-        android:textSize="18sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="italic" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="10dp"
-        android:background="@android:color/black"
-        android:padding="15dp" />
+        android:background="@color/colorPrimaryDark"
+        android:padding="15dp"
+        android:alpha="0.5"
+        />
 
 </LinearLayout>

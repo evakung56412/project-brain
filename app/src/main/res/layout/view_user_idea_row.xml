@@ -3,11 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
+    android:background="#BDF47D"
     android:padding="15dp">
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="10dp" />
 
     <TextView
         android:id="@+id/userIdeaTitleTV"
@@ -16,7 +13,9 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="Title"
-        android:textSize="30sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/userIdeaContextTV"
@@ -25,7 +24,9 @@
         android:layout_marginTop="10dp"
         android:gravity="center"
         android:text="sdfadsfadfasdfadfadfadf"
-        android:textSize="25sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/userIdeaContentTV"
@@ -34,7 +35,8 @@
         android:layout_marginTop="10dp"
         android:gravity="top|left"
         android:text="safafadfasfadfadfasdfadfadsfadfadfadfasdfadfadfadsfasdfadfadfadfadfadfadfadfadfadfadfasdfsdfasdfasfafefdsfsafdfjlfkjfo;ijakdflakfj;iafslkjflkaji;odfjijd;klj;ajsdif;iajfjjfioaj;ejf;djf;ioajdf;iasd"
-        android:textSize="20sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp" />
 
     <Button
         android:id="@+id/deleteIdeaBtn"
@@ -44,12 +46,15 @@
         android:layout_marginTop="10dp"
         android:text="Delete"
         android:textAllCaps="false"
-        android:textSize="18sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="italic" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="10dp"
-        android:background="@android:color/black"
+        android:alpha="0.5"
+        android:background="@color/colorPrimaryDark"
         android:padding="15dp" />
 </LinearLayout>

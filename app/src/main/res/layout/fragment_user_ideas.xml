@@ -5,11 +5,33 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#BDF47D"
     tools:context=".fragment.UserIdeasFragment">
 
-    <Space
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:theme="@style/MyActiobBarTheme">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Your Ideas"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:gravity="center"
+                >
+            </TextView>
+        </androidx.appcompat.widget.Toolbar>
+
+    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerIdeas"
@@ -25,6 +47,8 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="You didn't post any ideas."
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
+        android:textStyle="italic"
         android:visibility="gone" />
 </LinearLayout>

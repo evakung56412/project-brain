@@ -3,9 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center_horizontal"
+    android:background="#BDF47D"
     tools:context=".fragment.NewIdeaFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -17,7 +17,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Post a new idea"
+            android:text="Create Post"
             android:gravity="center"
             android:textColor="#ffffff"
             android:textSize="20sp"></TextView>
@@ -31,6 +31,7 @@
         android:ems="15"
         android:hint="Title"
         android:inputType="textPersonName"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
 
     <EditText
@@ -41,6 +42,7 @@
         android:ems="15"
         android:hint="Context"
         android:inputType="textPersonName"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
 
     <EditText
@@ -54,6 +56,7 @@
         android:inputType="textMultiLine|textPersonName"
         android:lines="10"
         android:maxLines="10"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
 
 </LinearLayout>

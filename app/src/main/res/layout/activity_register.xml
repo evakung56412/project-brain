@@ -6,25 +6,28 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
+    android:background="#BDF47D"
     tools:context=".activity.RegisterActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Please enter following information \n * is mandatory"
+        android:text="Please enter following information. \n * is mandatory"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
-        />
+        android:textStyle="italic" />
 
     <EditText
         android:id="@+id/registerEmailET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
         android:ems="10"
         android:hint="*Email"
         android:inputType="textEmailAddress"
-        android:textSize="20sp"
-        android:layout_marginTop="20dp"
-        />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/registerUsernameET"
@@ -33,6 +36,7 @@
         android:ems="10"
         android:hint="*Username"
         android:inputType="textPersonName"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
 
     <EditText
@@ -42,6 +46,7 @@
         android:ems="10"
         android:hint="*Password"
         android:inputType="textPassword"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
 
     <EditText
@@ -51,6 +56,7 @@
         android:ems="10"
         android:hint="First Name"
         android:inputType="textPersonName"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
 
     <EditText
@@ -60,6 +66,7 @@
         android:ems="10"
         android:hint="Last Name"
         android:inputType="textPersonName"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp" />
 
     <Button
@@ -70,7 +77,9 @@
         android:ems="10"
         android:text="Sign Up"
         android:textAllCaps="false"
-        android:textSize="20sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="italic" />
 
     <Button
         android:id="@+id/signInBtn"
@@ -79,6 +88,8 @@
         android:layout_marginTop="15dp"
         android:text="Already have an account? Sign In"
         android:textAllCaps="false"
-        android:textSize="16sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="16sp"
+        android:textStyle="italic" />
 
 </LinearLayout>

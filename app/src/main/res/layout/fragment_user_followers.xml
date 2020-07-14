@@ -5,20 +5,43 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#BDF47D"
     tools:context=".fragment.UserFollowersFragment">
 
-    <Space
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="10dp" />
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_profile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:theme="@style/MyActiobBarTheme">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Your Followers"
+                android:textColor="#ffffff"
+                android:textSize="20sp"
+                android:gravity="center"
+                >
+            </TextView>
+        </androidx.appcompat.widget.Toolbar>
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/totalFollowerTV"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center"
         android:text="Total Followers: "
-        android:gravity="right"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
-        />
+        android:textStyle="italic" />
 
     <View
         android:layout_width="match_parent"
@@ -43,7 +66,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Sorry, no one follows you."
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
+        android:textStyle="italic"
         android:visibility="gone" />
 
 </LinearLayout>

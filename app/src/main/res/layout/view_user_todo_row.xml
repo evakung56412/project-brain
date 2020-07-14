@@ -3,14 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar_userTodo"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/MyActiobBarTheme"
-        app:titleTextColor="@android:color/white" />
+    android:orientation="vertical"
+    android:background="#BDF47D"
+    android:padding="15dp"
+    >
 
     <TextView
         android:id="@+id/userTodoTitleTV"
@@ -19,7 +15,9 @@
         android:layout_marginTop="10dp"
         android:text="Title"
         android:textAlignment="center"
-        android:textSize="30sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="25sp"
+        android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/userTodoContextTV"
@@ -28,7 +26,9 @@
         android:layout_marginTop="10dp"
         android:text="sdfadsfadfasdfadfadfadf"
         android:textAlignment="center"
-        android:textSize="25sp" />
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="italic" />
 
     <TextView
         android:id="@+id/userTodoContentTV"
@@ -36,13 +36,27 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:text="safafadfasfadfadfasdfadfadsfadfadfadfasdfadfadfadsfasdfadfadfadfadfadfadfadfadfadfadfasdfsdfasdfasfafefdsfsafdfjlfkjfo;ijakdflakfj;iafslkjflkaji;odfjijd;klj;ajsdif;iajfjjfioaj;ejf;djf;ioajdf;iasd"
-        android:textAlignment="center"
-        android:textSize="20sp" />
+        android:textAlignment="viewStart"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="18sp"/>
+
+    <Button
+        android:id="@+id/deleteTodoBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:layout_marginTop="10dp"
+        android:text="Delete"
+        android:textAllCaps="false"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        android:textStyle="italic" />
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_marginTop="10dp"
-        android:background="@android:color/black"
+        android:alpha="0.5"
+        android:background="@color/colorPrimaryDark"
         android:padding="15dp" />
 </LinearLayout>
