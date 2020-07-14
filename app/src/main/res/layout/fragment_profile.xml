@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragment.ProfileFragment">
+
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        />
+
+    <Button
+        android:id="@+id/ideaBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ideas"
+        android:textSize="25sp"
+        android:textAllCaps="false"
+        android:drawableRight="@drawable/ic_arrow_forward"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"/>
+
+    <Button
+        android:id="@+id/todoBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="To Do"
+        android:textSize="25sp"
+        android:textAllCaps="false"
+        android:drawableRight="@drawable/ic_arrow_forward"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"/>
+
+    <Button
+        android:id="@+id/followerBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Followers"
+        android:textSize="25sp"
+        android:textAllCaps="false"
+        android:drawableRight="@drawable/ic_arrow_forward"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"/>
+
+    <Button
+        android:id="@+id/updateProfileBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Update Profile"
+        android:textSize="25sp"
+        android:textAllCaps="false"
+        android:drawableRight="@drawable/ic_arrow_forward"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"/>
+
+    <Button
+        android:id="@+id/signOutBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign Out"
+        android:textSize="25sp"
+        android:textAllCaps="false"
+        android:drawableRight="@drawable/ic_arrow_forward"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/black"
+        android:layout_marginLeft="18dp"
+        android:layout_marginRight="18dp"/>
+</LinearLayout>

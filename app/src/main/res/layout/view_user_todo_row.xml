@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_userTodo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/MyActiobBarTheme"
+        app:titleTextColor="@android:color/white" />
+
+    <TextView
+        android:id="@+id/userTodoTitleTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Title"
+        android:textAlignment="center"
+        android:textSize="30sp" />
+
+    <TextView
+        android:id="@+id/userTodoContextTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="sdfadsfadfasdfadfadfadf"
+        android:textAlignment="center"
+        android:textSize="25sp" />
+
+    <TextView
+        android:id="@+id/userTodoContentTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="safafadfasfadfadfasdfadfadsfadfadfadfasdfadfadfadsfasdfadfadfadfadfadfadfadfadfadfadfasdfsdfasdfasfafefdsfsafdfjlfkjfo;ijakdflakfj;iafslkjflkaji;odfjijd;klj;ajsdif;iajfjjfioaj;ejf;djf;ioajdf;iasd"
+        android:textAlignment="center"
+        android:textSize="20sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/black"
+        android:padding="15dp" />
+</LinearLayout>

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".fragment.NewIdeaFragment">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_newIdea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/MyActiobBarTheme"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="Post a new idea"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="20sp"></TextView>
+    </androidx.appcompat.widget.Toolbar>
+
+    <EditText
+        android:id="@+id/newIdeaTitleET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="15"
+        android:hint="Title"
+        android:inputType="textPersonName"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/newIdeaContextET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="15"
+        android:hint="Context"
+        android:inputType="textPersonName"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/newIdeaContentET"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="15"
+        android:gravity="top|left"
+        android:hint="Content"
+        android:inputType="textMultiLine|textPersonName"
+        android:lines="10"
+        android:maxLines="10"
+        android:textSize="20sp" />
+
+</LinearLayout>
