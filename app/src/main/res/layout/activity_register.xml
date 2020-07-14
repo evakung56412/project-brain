@@ -23,51 +23,65 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:background="@drawable/edittext_selector"
         android:ems="10"
         android:hint="*Email"
         android:inputType="textEmailAddress"
+        android:paddingLeft="10dp"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp" />
+        android:textSize="22sp" />
 
     <EditText
         android:id="@+id/registerUsernameET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edittext_selector"
         android:ems="10"
         android:hint="*Username"
         android:inputType="textPersonName"
+        android:paddingLeft="10dp"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp" />
+        android:textSize="22sp" />
 
     <EditText
         android:id="@+id/registerPwdET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edittext_selector"
         android:ems="10"
         android:hint="*Password"
         android:inputType="textPassword"
+        android:paddingLeft="10dp"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp" />
+        android:textSize="22sp" />
 
     <EditText
         android:id="@+id/registerFirstNameET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edittext_selector"
         android:ems="10"
         android:hint="First Name"
         android:inputType="textPersonName"
+        android:paddingLeft="10dp"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp" />
+        android:textSize="22sp" />
 
     <EditText
         android:id="@+id/registerLastNameET"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/edittext_selector"
         android:ems="10"
         android:hint="Last Name"
         android:inputType="textPersonName"
+        android:paddingLeft="10dp"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp" />
+        android:textSize="22sp" />
 
     <Button
         android:id="@+id/signUpBtn"
@@ -94,6 +108,7 @@
         android:textSize="16sp"
         android:textStyle="italic"
         android:background="@drawable/button_selector"
+        android:padding="5dp"
         />
 
 </LinearLayout>

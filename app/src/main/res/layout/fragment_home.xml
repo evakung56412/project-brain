@@ -39,7 +39,11 @@
         app:layout_constraintBottom_toTopOf="@id/recyclerHome"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_margin="10dp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/edittext_selector"
+        />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerHome"

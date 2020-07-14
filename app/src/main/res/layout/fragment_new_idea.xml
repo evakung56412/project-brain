@@ -30,9 +30,13 @@
         android:layout_marginTop="15dp"
         android:ems="15"
         android:hint="Title"
+        android:gravity="left"
         android:inputType="textPersonName"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/edittext_selector"
+        />
 
     <EditText
         android:id="@+id/newIdeaContextET"
@@ -40,10 +44,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
         android:ems="15"
+        android:gravity="left"
         android:hint="Context"
         android:inputType="textPersonName"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/edittext_selector"
+        />
 
     <EditText
         android:id="@+id/newIdeaContentET"
@@ -57,6 +65,9 @@
         android:lines="10"
         android:maxLines="10"
         android:textColor="@color/colorPrimaryDark"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:paddingLeft="10dp"
+        android:background="@drawable/edittext_selector"
+        />
 
 </LinearLayout>

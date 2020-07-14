@@ -33,47 +33,72 @@
 
     </LinearLayout>
 
-    <EditText
-        android:id="@+id/updatePwdET"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        android:textColor="@color/colorPrimaryDark" />
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center"
+        >
 
-    <EditText
-        android:id="@+id/updateFirstNameET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="First Name"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorPrimaryDark" />
+        <EditText
+            android:id="@+id/updatePwdET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_selector"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp" />
 
-    <EditText
-        android:id="@+id/updateLastNameET"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:ems="10"
-        android:hint="Last Name"
-        android:inputType="textPersonName"
-        android:textColor="@color/colorPrimaryDark" />
 
-    <Button
-        android:id="@+id/updateBtn"
-        android:layout_width="wrap_content"
+        <EditText
+            android:id="@+id/updateFirstNameET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edittext_selector"
+            android:ems="10"
+            android:hint="First Name"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp" />
+
+        <EditText
+            android:id="@+id/updateLastNameET"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edittext_selector"
+            android:ems="10"
+            android:hint="Last Name"
+            android:inputType="textPersonName"
+            android:paddingLeft="10dp"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="22sp" />
+
+        <Button
+            android:id="@+id/updateBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:ems="5"
+            android:text="Update"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="18sp"
+            android:textStyle="italic"
+            android:background="@drawable/button_selector"
+            />
+    </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:ems="5"
-        android:text="Update"
-        android:textAllCaps="false"
-        android:textColor="@color/colorPrimaryDark"
-        android:textSize="18sp"
-        android:textStyle="italic"
-        android:background="@drawable/button_selector"
-        />
+        android:layout_weight="1"
+        >
+    </Space>
+
 </LinearLayout>

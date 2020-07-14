@@ -35,54 +35,56 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
+            android:background="@drawable/edittext_selector"
             android:ems="10"
             android:hint="Email"
             android:inputType="textEmailAddress"
+            android:paddingLeft="10dp"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp" />
+            android:textSize="25sp" />
 
         <EditText
             android:id="@+id/loginPwdET"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edittext_selector"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
+            android:paddingLeft="10dp"
             android:textColor="@color/colorPrimaryDark"
-            android:textSize="20sp" />
+            android:textSize="25sp" />
 
         <Button
             android:id="@+id/loginBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="15dp"
+            android:background="@drawable/button_selector"
             android:ems="10"
             android:text="Login"
             android:textAlignment="center"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="20sp"
-            android:textStyle="italic"
-            android:background="@drawable/button_selector"
-            />
+            android:textStyle="italic" />
 
         <Button
             android:id="@+id/registerBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="15dp"
+            android:background="@drawable/button_selector"
             android:ems="13"
             android:text="No Account? Register here"
             android:textAllCaps="false"
             android:textColor="@color/colorPrimaryDark"
             android:textSize="16sp"
-            android:textStyle="italic"
-            android:background="@drawable/button_selector"
-            />
+            android:textStyle="italic" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
