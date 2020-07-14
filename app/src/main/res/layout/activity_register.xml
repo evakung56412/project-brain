@@ -79,7 +79,9 @@
         android:textAllCaps="false"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="20sp"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        android:background="@drawable/button_selector"
+        />
 
     <Button
         android:id="@+id/signInBtn"
@@ -90,6 +92,8 @@
         android:textAllCaps="false"
         android:textColor="@color/colorPrimaryDark"
         android:textSize="16sp"
-        android:textStyle="italic" />
+        android:textStyle="italic"
+        android:background="@drawable/button_selector"
+        />
 
 </LinearLayout>

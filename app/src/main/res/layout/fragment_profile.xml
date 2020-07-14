@@ -36,7 +36,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="30dp"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
         >
 
         <LinearLayout
@@ -50,21 +51,30 @@
                 android:id="@+id/ideaBtn"
                 android:layout_width="157dp"
                 android:layout_height="157dp"
-                android:text="Your Ideas"
-                android:textSize="25sp"
-                android:textAllCaps="false"
+                android:background="@drawable/button_selector"
                 android:drawableRight="@drawable/ic_arrow_forward"
-                />
+                android:text="Your Ideas"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="25sp"
+                android:textStyle="italic" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp">
+            </Space>
 
             <Button
                 android:id="@+id/followerBtn"
                 android:layout_width="157dp"
                 android:layout_height="157dp"
-                android:text="Followers"
-                android:textSize="25sp"
-                android:textAllCaps="false"
+                android:background="@drawable/button_selector"
                 android:drawableRight="@drawable/ic_arrow_forward"
-                />
+                android:text="Followers"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="25sp"
+                android:textStyle="italic" />
 
         </LinearLayout>
 
@@ -79,23 +89,32 @@
                 android:id="@+id/todoBtn"
                 android:layout_width="157dp"
                 android:layout_height="157dp"
-                android:text="To Do List"
-                android:textSize="25sp"
-                android:textAllCaps="false"
                 android:layout_gravity="right"
+                android:background="@drawable/button_selector"
                 android:drawableRight="@drawable/ic_arrow_forward"
-                />
+                android:text="To Do List"
+                android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="25sp"
+                android:textStyle="italic" />
+
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="10dp">
+            </Space>
 
             <Button
                 android:id="@+id/updateProfileBtn"
                 android:layout_width="157dp"
                 android:layout_height="157dp"
+                android:layout_gravity="right"
+                android:background="@drawable/button_selector"
                 android:drawableRight="@drawable/ic_arrow_forward"
                 android:text="Update Profile"
                 android:textAllCaps="false"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="25sp"
-                android:layout_gravity="right"
-                />
+                android:textStyle="italic" />
 
         </LinearLayout>
 
@@ -106,15 +125,18 @@
         android:orientation="horizontal"
         android:layout_gravity="center"
         >
+
         <Button
             android:id="@+id/signOutBtn"
             android:layout_width="157dp"
             android:layout_height="157dp"
-            android:text="Sign Out"
-            android:textSize="25sp"
-            android:textAllCaps="false"
+            android:background="@drawable/button_selector"
             android:drawableRight="@drawable/ic_arrow_forward"
-            />
+            android:text="Sign Out"
+            android:textAllCaps="false"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="25sp"
+            android:textStyle="italic" />
     </LinearLayout>
 
 
