@@ -13,7 +13,7 @@
         <item name="colorControlNormal">#ffffff</item>
         <item name="android:background">#FA12273F</item>
         <item name="titleTextColor">#ffffff</item>
-        <item name="android:gravity">right</item>
-        <item name="android:layout_gravity">right</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
     </style>
 </resources>
