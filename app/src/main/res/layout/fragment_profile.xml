@@ -16,7 +16,7 @@
                 android:id="@+id/toolbar_profile"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center"
+                android:paddingRight="15dp"
                 android:theme="@style/MyActiobBarTheme">
 
                 <TextView
@@ -25,7 +25,6 @@
                     android:text="Menu"
                     android:textColor="#ffffff"
                     android:textSize="20sp"
-                    android:gravity="center"
                     >
                 </TextView>
             </androidx.appcompat.widget.Toolbar>
