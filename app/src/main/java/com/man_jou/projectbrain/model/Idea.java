@@ -2,10 +2,13 @@ package com.man_jou.projectbrain.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class Idea {
+public class Idea implements Comparable<Idea>{
 
     @JsonProperty("id")
     private long id;
+
+    @JsonProperty("citeId")
+    private String citeId;
 
     @JsonProperty("title")
     private String title;
@@ -21,8 +24,9 @@ public class Idea {
 
     public Idea() {}
 
-    public Idea(long id, String title, String context, String content, Brain author) {
+    public Idea(long id, String citeId, String title, String context, String content, Brain author) {
         this.id = id;
+        this.citeId = citeId;
         this.title = title;
         this.context = context;
         this.content = content;
@@ -67,5 +71,18 @@ public class Idea {
 
     public void setAuthor(Brain author) {
         this.author = author;
+    }
+
+    public String getCiteId() {
+        return citeId;
+    }
+
+    public void setCiteId(String citeId) {
+        this.citeId = citeId;
+    }
+
+    @Override
+    public int compareTo(Idea o) {
+        return (int) (this.id - o.id);
     }
 }
