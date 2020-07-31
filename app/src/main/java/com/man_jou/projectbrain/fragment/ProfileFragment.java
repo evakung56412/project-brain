@@ -64,38 +64,36 @@ public class ProfileFragment extends Fragment implements View.OnClickListener{
         Bundle bundle = new Bundle();
         bundle.putString("username", username);
 
-        getActivity().getSupportFragmentManager().beginTransaction().remove(getFragment()).commit();
-
         switch (id) {
             case R.id.ideaBtn:
 
                 UserIdeasFragment userIdeasFragment = new UserIdeasFragment();
                 userIdeasFragment.setArguments(bundle);
 
-                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.frameLayout,
-                        userIdeasFragment, UserIdeasFragment.class.getSimpleName())
-                        .addToBackStack(null).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, userIdeasFragment)
+                        .addToBackStack(userIdeasFragment.getClass().getName()).commit();
                 break;
             case R.id.todoBtn:
-                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.frameLayout,
-                        new UserTodosFragment(), UserTodosFragment.class.getSimpleName())
-                        .addToBackStack(null).commit();
+
+                UserTodosFragment userTodosFragment = new UserTodosFragment();
+                userTodosFragment.setArguments(bundle);
+
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, userTodosFragment)
+                        .addToBackStack(userTodosFragment.getClass().getName()).commit();
                 break;
             case R.id.followerBtn:
                 UserFollowersFragment userFollowersFragment = new UserFollowersFragment();
                 userFollowersFragment.setArguments(bundle);
 
-                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.frameLayout,
-                        userFollowersFragment, UserFollowersFragment.class.getSimpleName())
-                        .addToBackStack(null).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, userFollowersFragment)
+                        .addToBackStack(userFollowersFragment.getClass().getName()).commit();
                 break;
             case R.id.updateProfileBtn:
                 UpdateProfileFragment updateProfileFragment = new UpdateProfileFragment();
                 updateProfileFragment.setArguments(bundle);
 
-                getActivity().getSupportFragmentManager().beginTransaction().add(R.id.frameLayout,
-                        updateProfileFragment, UpdateProfileFragment.class.getSimpleName())
-                        .addToBackStack(null).commit();
+                getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, updateProfileFragment)
+                        .addToBackStack(updateProfileFragment.getClass().getName()).commit();
                 break;
             case R.id.signOutBtn:
                 Intent i = new Intent(getActivity(), MainActivity.class);

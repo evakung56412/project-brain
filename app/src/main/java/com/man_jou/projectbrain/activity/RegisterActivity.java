@@ -96,4 +96,10 @@ public class RegisterActivity extends AppCompatActivity implements ApiCallback<B
 
     @Override
     public void getResult(ResponseEntity<Brain> responseEntity) {}
+
+    @Override
+    public void onBackPressed() {
+        finish();
+        super.onBackPressed();
+    }
 }

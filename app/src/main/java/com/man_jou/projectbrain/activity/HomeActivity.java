@@ -7,8 +7,10 @@ import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
 import com.man_jou.projectbrain.R;
+import com.man_jou.projectbrain.fragment.CiteIdeaFragment;
 import com.man_jou.projectbrain.fragment.HomeFragment;
 import com.man_jou.projectbrain.fragment.NewIdeaFragment;
+import com.man_jou.projectbrain.fragment.OriginalIdeaFragment;
 import com.man_jou.projectbrain.fragment.ProfileFragment;
 import com.man_jou.projectbrain.fragment.UpdateProfileFragment;
 import com.man_jou.projectbrain.fragment.UserFollowersFragment;
@@ -44,8 +46,7 @@ public class HomeActivity extends AppCompatActivity implements TabLayout.OnTabSe
         fragment.setArguments(bundle);
 
         getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment)
-                .addToBackStack(null)
-                .commit();
+                .addToBackStack(fragment.getClass().getName()).commit();
 
         tabLayout.addOnTabSelectedListener(this);
     }
@@ -57,34 +58,27 @@ public class HomeActivity extends AppCompatActivity implements TabLayout.OnTabSe
     public void onTabSelected(TabLayout.Tab tab) {
 
         Fragment currentFrag = getSupportFragmentManager().findFragmentById(R.id.frameLayout);
-        getSupportFragmentManager().beginTransaction().remove(currentFrag).commit();
 
         if (tab.getPosition() == 0) {
             HomeFragment fragment = new HomeFragment();
             fragment.setArguments(bundle);
 ;
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,
-                    fragment, HomeFragment.class.getSimpleName())
-                    .addToBackStack(null)
-                    .commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment)
+                    .addToBackStack(fragment.getClass().getName()).commit();
         }
         else if (tab.getPosition() == 1) {
             NewIdeaFragment fragment = new NewIdeaFragment();
             fragment.setArguments(bundle);
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,
-                    fragment, NewIdeaFragment.class.getSimpleName())
-                    .addToBackStack(null)
-                    .commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment)
+                    .addToBackStack(fragment.getClass().getName()).commit();
         }
         else {
             ProfileFragment fragment = new ProfileFragment();
             fragment.setArguments(bundle);
 
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,
-                    fragment, ProfileFragment.class.getSimpleName())
-                    .addToBackStack(null)
-                    .commit();
+            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment)
+                    .addToBackStack(fragment.getClass().getName()).commit();
         }
     }
 
@@ -97,22 +91,12 @@ public class HomeActivity extends AppCompatActivity implements TabLayout.OnTabSe
     @Override
     public void onBackPressed() {
 
-        Fragment currentFrag = getSupportFragmentManager().findFragmentById(R.id.frameLayout);
+        int count = getSupportFragmentManager().getBackStackEntryCount();
 
-        if (currentFrag.getTag().equals(UserIdeasFragment.class.getSimpleName())     ||
-            currentFrag.getTag().equals(UserTodosFragment.class.getSimpleName())     ||
-            currentFrag.getTag().equals(UserFollowersFragment.class.getSimpleName()) ||
-            currentFrag.getTag().equals(UpdateProfileFragment.class.getSimpleName())
-           )
-        {
-            ProfileFragment profileFragment = new ProfileFragment();
-            profileFragment.setArguments(bundle);
-
-            getSupportFragmentManager().beginTransaction().remove(currentFrag).commit();
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout,
-                    profileFragment, ProfileFragment.class.getSimpleName())
-                    .addToBackStack(null)
-                    .commit();
+        if (count == 0) {
+            super.onBackPressed();
+        } else {
+            getSupportFragmentManager().popBackStack();
         }
     }
 }
