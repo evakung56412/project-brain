@@ -15,10 +15,9 @@
         android:theme="@style/MyActiobBarTheme"
         >
         <TextView
+            android:id="@+id/toolbarTV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Create Post"
-            android:gravity="center"
             android:textColor="#ffffff"
             android:textSize="20sp"></TextView>
     </androidx.appcompat.widget.Toolbar>

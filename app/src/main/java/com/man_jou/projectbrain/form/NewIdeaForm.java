@@ -5,14 +5,16 @@ import org.json.JSONObject;
 public class NewIdeaForm implements ApiJsonForm{
 
     private String username;
+    private String citeId;
     private String title;
     private String context;
     private String content;
 
     public NewIdeaForm() {}
 
-    public NewIdeaForm(String username, String title, String context, String content) {
+    public NewIdeaForm(String username, String citeId, String title, String context, String content) {
         this.username = username;
+        this.citeId = citeId;
         this.title = title;
         this.context = context;
         this.content = content;
@@ -24,6 +26,14 @@ public class NewIdeaForm implements ApiJsonForm{
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public String getCiteId() {
+        return citeId;
+    }
+
+    public void setCiteId(String citeId) {
+        this.citeId = citeId;
     }
 
     public String getTitle() {
@@ -61,6 +71,7 @@ public class NewIdeaForm implements ApiJsonForm{
         JSONObject jsonObject = new JSONObject();
         try {;
             jsonObject.put("username", this.getUsername());
+            jsonObject.put("citeId", this.getCiteId());
             jsonObject.put("title", this.getTitle());
             jsonObject.put("context", this.getContext());
             jsonObject.put("content", this.getContent());

@@ -14,6 +14,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.man_jou.projectbrain.R;
@@ -59,6 +60,8 @@ public class NewIdeaFragment extends Fragment implements ApiCallback<Idea> {
 
         setHasOptionsMenu(true);
         Toolbar toolbar = view.findViewById(R.id.toolbar_newIdea);
+        TextView textView = toolbar.findViewById(R.id.toolbarTV);
+        textView.setText("Create A New Post");
 
         ((AppCompatActivity) getActivity()).setSupportActionBar(toolbar);
     }
@@ -84,6 +87,7 @@ public class NewIdeaFragment extends Fragment implements ApiCallback<Idea> {
             else {
                 NewIdeaForm form = new NewIdeaForm();
                 form.setUsername(username);
+                form.setCiteId("");
                 form.setTitle(newIdeaTitleET.getText().toString());
                 form.setContext(newIdeaContextET.getText().toString());
                 form.setContent(newIdeaContentET.getText().toString());
