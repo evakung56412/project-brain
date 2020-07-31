@@ -21,7 +21,8 @@ import android.widget.Toast;
 import com.man_jou.projectbrain.R;
 import com.man_jou.projectbrain.adapter.HomeIdeaAdapter;
 import com.man_jou.projectbrain.callback.ApiCallback;
-import com.man_jou.projectbrain.callback.DataCallback;
+import com.man_jou.projectbrain.callback.HomeCallback;
+import com.man_jou.projectbrain.callback.IdeaCallback;
 import com.man_jou.projectbrain.form.FollowForm;
 import com.man_jou.projectbrain.model.Brain;
 import com.man_jou.projectbrain.model.Idea;
@@ -32,16 +33,17 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class HomeFragment extends Fragment implements ApiCallback<String>, DataCallback, TextWatcher {
+public class HomeFragment extends Fragment implements ApiCallback<String>, HomeCallback, TextWatcher, IdeaCallback {
 
     private TextView empHomeIdeaTV;
-    private EditText searchUsernameET;
+    private EditText searchUsernameET, searchTitleET;
     private RecyclerView recyclerHome;
     private HomeIdeaAdapter adapter;
 
     private ArrayList<Idea> ideaArrayList, searchedIdeaArrayList;
-    private String followerUserName, followedUserName;
+    private String username, followedUserName;
 
     public HomeFragment getFragment() {
         return this;
@@ -54,7 +56,7 @@ public class HomeFragment extends Fragment implements ApiCallback<String>, DataC
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        followerUserName = getArguments().getString("username");
+        username = getArguments().getString("username");
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
 
@@ -64,16 +66,18 @@ public class HomeFragment extends Fragment implements ApiCallback<String>, DataC
 
         empHomeIdeaTV = view.findViewById(R.id.empHomeIdeaTV);
         searchUsernameET = view.findViewById(R.id.searchUsernameET);
+        searchTitleET = view.findViewById(R.id.searchTitleET);
 
         ideaArrayList = new ArrayList<>();
         searchedIdeaArrayList = new ArrayList<>();
-        adapter = new HomeIdeaAdapter(getActivity(), searchedIdeaArrayList, this);
+        adapter = new HomeIdeaAdapter(getActivity(), searchedIdeaArrayList, this, this);
 
         recyclerHome = view.findViewById(R.id.recyclerHome);
         recyclerHome.setLayoutManager(new LinearLayoutManager(getActivity()));
         recyclerHome.setAdapter(adapter);
 
         searchUsernameET.addTextChangedListener(this);
+        searchTitleET.addTextChangedListener(this);
 
         String request = "http://10.0.2.2:8080/ideas";
         new GetTaskJson<>(String.class, getFragment()).execute(request);
@@ -100,7 +104,7 @@ public class HomeFragment extends Fragment implements ApiCallback<String>, DataC
             }
         }
         else {
-            Log.i("Get Ideas Failed: ", responseEntity.getStatusCode().toString());
+            Log.i("Get All Ideas Failed: ", responseEntity.getStatusCode().toString());
         }
     }
 
@@ -116,27 +120,39 @@ public class HomeFragment extends Fragment implements ApiCallback<String>, DataC
     }
 
     /*
-        DataCallback
+        HomeCallback
     */
     @Override
-    public void deleteItem(int position, Object object) {}
-
-    @Override
-    public void followUser(int position, Object object) {
+    public void followUser(Object object) {
         Idea idea = (Idea) object;
         followedUserName = idea.getAuthor().getUsername();
 
-        if (followerUserName.equals(followedUserName))
+        if (username.equals(followedUserName))
         {
             Toast.makeText(getContext(), "Sorry, cannot follow yourself.", Toast.LENGTH_LONG).show();
         }
         else {
             FollowForm form = new FollowForm();
-            form.setFollowerUsername(followerUserName);
+            form.setFollowerUsername(username);
             form.setFollowedUsername(followedUserName);
 
             new PostTaskJson<FollowForm, String>(String.class, getFragment()).execute(form);
         }
+    }
+
+    @Override
+    public void citeIdea(Object object) {
+        Idea idea = (Idea) object;
+        Bundle bundle = new Bundle();
+        bundle.putString("username", username);
+        bundle.putString("citeId", String.valueOf(idea.getId()));
+        bundle.putString("title", idea.getTitle());
+
+        CiteIdeaFragment fragment = new CiteIdeaFragment();
+        fragment.setArguments(bundle);
+
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment)
+                .addToBackStack(fragment.getClass().getName()).commit();
     }
 
     /*
@@ -152,6 +168,7 @@ public class HomeFragment extends Fragment implements ApiCallback<String>, DataC
     public void afterTextChanged(Editable s) {
         if (!searchUsernameET.getText().toString().equals(""))
         {
+            searchTitleET.setEnabled(false);
             String username = searchUsernameET.getText().toString();
 
             searchedIdeaArrayList.clear();
@@ -163,37 +180,67 @@ public class HomeFragment extends Fragment implements ApiCallback<String>, DataC
 
             if (searchedIdeaArrayList.isEmpty())
             {
-                empHomeIdeaTV.setText("This user does not exist");
+                empHomeIdeaTV.setText("This user does not exist.");
                 empHomeIdeaTV.setVisibility(View.VISIBLE);
             }
             else {
                 empHomeIdeaTV.setVisibility(View.GONE);
             }
+        }
+        else if (!searchTitleET.getText().toString().equals(""))
+        {
+            searchUsernameET.setEnabled(false);
 
-            adapter.notifyDataSetChanged();
+            String title = searchTitleET.getText().toString();
+            searchedIdeaArrayList.clear();
+            for (Idea idea : ideaArrayList) {
+                if (idea.getTitle().contains(title)) {
+                    searchedIdeaArrayList.add(idea);
+                }
+            }
+
+            if (searchedIdeaArrayList.isEmpty()) {
+                empHomeIdeaTV.setText("This title does not exist.");
+                empHomeIdeaTV.setVisibility(View.VISIBLE);
+            }
+            else {
+                empHomeIdeaTV.setVisibility(View.GONE);
+            }
         }
         else {
+            searchUsernameET.setEnabled(true);
+            searchTitleET.setEnabled(true);
             empHomeIdeaTV.setVisibility(View.GONE);
             searchedIdeaArrayList.clear();
             searchedIdeaArrayList.addAll(ideaArrayList);
-            adapter.notifyDataSetChanged();
         }
+
+        Collections.reverse(searchedIdeaArrayList);
+        adapter.notifyDataSetChanged();
     }
 
     public void parseResponse(String response) {
         // remove {}
         response = response.replaceAll("[{}\"]","");
 
+        int ideaDataLength = 10;
+
         String[] pairs = response.split(",");
-        for (int i = 0; i < pairs.length; i += 8) {
+        for (int i = 0; i < pairs.length; i += ideaDataLength) {
             Idea idea = new Idea();
             Brain author = new Brain();
 
-            for (int j = i; j < i + 8; j++) {
+            for (int j = i; j < i + ideaDataLength; j++) {
                 String[] keyValue = pairs[j].split(":");
                 int length = keyValue.length - 1;
 
-                if (keyValue[0].equals("title")) {
+                if (keyValue[0].equals("id")) {
+                    idea.setId(Long.valueOf(keyValue[length]));
+                }
+                if (keyValue[0].equals("citeId")) {
+                    idea.setCiteId(keyValue[length]);
+                }
+                else if (keyValue[0].equals("title")) {
                     idea.setTitle(keyValue[length]);
                 }
                 else if (keyValue[0].equals("context")) {
@@ -225,6 +272,27 @@ public class HomeFragment extends Fragment implements ApiCallback<String>, DataC
 
         searchedIdeaArrayList.clear();
         searchedIdeaArrayList.addAll(ideaArrayList);
+        Collections.reverse(searchedIdeaArrayList);
         adapter.notifyDataSetChanged();
+    }
+
+    /*
+        IdeaCallback
+    */
+    @Override
+    public void deleteItem(int position, Object object) {}
+
+    @Override
+    public void directToOriginal(Object object) {
+        Idea idea = (Idea) object;
+
+        Bundle bundle = new Bundle();
+        bundle.putString("citeId", idea.getCiteId());
+
+        OriginalIdeaFragment fragment = new OriginalIdeaFragment();
+        fragment.setArguments(bundle);
+
+        getActivity().getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment)
+                .addToBackStack(fragment.getClass().getName()).commit();
     }
 }

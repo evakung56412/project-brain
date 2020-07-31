@@ -12,7 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.man_jou.projectbrain.R;
-import com.man_jou.projectbrain.callback.DataCallback;
+import com.man_jou.projectbrain.callback.IdeaCallback;
 import com.man_jou.projectbrain.model.Idea;
 
 import java.util.ArrayList;
@@ -21,9 +21,9 @@ public class UserIdeasAdapter extends RecyclerView.Adapter<UserIdeasAdapter.View
 
     private Context context;
     private ArrayList<Idea> listOfIdeas;
-    private DataCallback callback;
+    private IdeaCallback callback;
 
-    public UserIdeasAdapter(Context context, ArrayList<Idea> listOfIdeas, DataCallback callback) {
+    public UserIdeasAdapter(Context context, ArrayList<Idea> listOfIdeas, IdeaCallback callback) {
         this.context = context;
         this.listOfIdeas = listOfIdeas;
         this.callback = callback;

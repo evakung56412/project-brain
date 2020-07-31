@@ -3,16 +3,26 @@ package com.man_jou.projectbrain.form;
 import org.json.JSONObject;
 
 public class RemoveIdeaForm implements ApiJsonForm{
+    private String citeId;
     private String title;
     private String context;
     private String content;
 
     public RemoveIdeaForm() {}
 
-    public RemoveIdeaForm(String title, String context, String content) {
+    public RemoveIdeaForm(String citeId, String title, String context, String content) {
+        this.citeId = citeId;
         this.title = title;
         this.context = context;
         this.content = content;
+    }
+
+    public String getCiteId() {
+        return citeId;
+    }
+
+    public void setCiteId(String citeId) {
+        this.citeId = citeId;
     }
 
     public String getTitle() {
@@ -48,6 +58,7 @@ public class RemoveIdeaForm implements ApiJsonForm{
     public JSONObject getJsonData() {
         JSONObject jsonObject = new JSONObject();
         try {
+            jsonObject.put("citeId", this.getCiteId());
             jsonObject.put("title", this.getTitle());
             jsonObject.put("context", this.getContext());
             jsonObject.put("content", this.getContent());

@@ -1,34 +1,36 @@
 package com.man_jou.projectbrain.adapter;
 
 import android.content.Context;
+import android.graphics.Paint;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.man_jou.projectbrain.R;
-import com.man_jou.projectbrain.callback.DataCallback;
-import com.man_jou.projectbrain.model.Brain;
+import com.man_jou.projectbrain.callback.HomeCallback;
+import com.man_jou.projectbrain.callback.IdeaCallback;
 import com.man_jou.projectbrain.model.Idea;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class HomeIdeaAdapter extends RecyclerView.Adapter<HomeIdeaAdapter.ViewHolder>{
 
     private Context context;
     private ArrayList<Idea> listOfIdeas;
-    private DataCallback callback;
+    private HomeCallback homecallback;
+    private IdeaCallback ideaCallback;
 
-    public HomeIdeaAdapter(Context context, ArrayList<Idea> listOfIdeas, DataCallback callback) {
+    public HomeIdeaAdapter(Context context, ArrayList<Idea> listOfIdeas, HomeCallback homecallback, IdeaCallback ideaCallback) {
         this.context = context;
         this.listOfIdeas = listOfIdeas;
-        this.callback = callback;
+        this.homecallback = homecallback;
+        this.ideaCallback = ideaCallback;
     }
 
     @NonNull
@@ -50,9 +52,30 @@ public class HomeIdeaAdapter extends RecyclerView.Adapter<HomeIdeaAdapter.ViewHo
         holder.followUserBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callback.followUser(position, idea);
+                homecallback.followUser(idea);
             }
         });
+
+        holder.citeIdeaBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                homecallback.citeIdea(idea);
+            }
+        });
+
+        Log.i("title", idea.getTitle());
+        Log.i("citeId", idea.getCiteId());
+        if (!idea.getCiteId().equals("citeId")) {
+            holder.ideaContextTV.setTextColor(context.getColor(R.color.underline));
+            holder.ideaContextTV.setPaintFlags(holder.ideaContextTV.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
+
+            holder.ideaContextTV.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ideaCallback.directToOriginal(idea);
+                }
+            });
+        }
     }
 
     @Override
@@ -63,7 +86,7 @@ public class HomeIdeaAdapter extends RecyclerView.Adapter<HomeIdeaAdapter.ViewHo
     public static class ViewHolder extends RecyclerView.ViewHolder {
 
         TextView ideaTitleTV, ideaContextTV, ideaContentTV, ideaAuthorTV;
-        Button followUserBtn;
+        Button followUserBtn, citeIdeaBtn;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -72,6 +95,7 @@ public class HomeIdeaAdapter extends RecyclerView.Adapter<HomeIdeaAdapter.ViewHo
             this.ideaContentTV = itemView.findViewById(R.id.ideaContentTV);
             this.ideaAuthorTV = itemView.findViewById(R.id.ideaAuthorTV);
             this.followUserBtn = itemView.findViewById(R.id.followUserBtn);
+            this.citeIdeaBtn = itemView.findViewById(R.id.citeIdeaBtn);
         }
     }
 }

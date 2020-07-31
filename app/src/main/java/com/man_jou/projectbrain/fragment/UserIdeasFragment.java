@@ -19,7 +19,7 @@ import android.widget.Toast;
 import com.man_jou.projectbrain.R;
 import com.man_jou.projectbrain.adapter.UserIdeasAdapter;
 import com.man_jou.projectbrain.callback.ApiCallback;
-import com.man_jou.projectbrain.callback.DataCallback;
+import com.man_jou.projectbrain.callback.IdeaCallback;
 import com.man_jou.projectbrain.form.RemoveIdeaForm;
 import com.man_jou.projectbrain.model.Idea;
 import com.man_jou.projectbrain.rest.GetTaskJson;
@@ -29,8 +29,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
-public class UserIdeasFragment extends Fragment implements ApiCallback<String>, DataCallback {
+public class UserIdeasFragment extends Fragment implements ApiCallback<String>, IdeaCallback {
 
     private TextView empIdeaTV;
     private RecyclerView recyclerIdeas;
@@ -104,6 +105,7 @@ public class UserIdeasFragment extends Fragment implements ApiCallback<String>, 
 
             if (!response.equals("")) {
                 parseResponse(response);
+                empIdeaTV.setVisibility(View.GONE);
             }
             else {
                 empIdeaTV.setVisibility(View.VISIBLE);
@@ -115,7 +117,7 @@ public class UserIdeasFragment extends Fragment implements ApiCallback<String>, 
     }
 
     /*
-        DataCallback
+        IdeaCallback
     */
     @Override
     public void deleteItem(int position, Object object) {
@@ -123,6 +125,7 @@ public class UserIdeasFragment extends Fragment implements ApiCallback<String>, 
 
         Idea idea = (Idea) object;
         RemoveIdeaForm form = new RemoveIdeaForm();
+        form.setCiteId("");
         form.setTitle(idea.getTitle());
         form.setContext(idea.getContext());
         form.setContent(idea.getContent());
@@ -131,22 +134,23 @@ public class UserIdeasFragment extends Fragment implements ApiCallback<String>, 
     }
 
     @Override
-    public void followUser(int position, Object object) {}
+    public void directToOriginal(Object object) {}
 
     public void parseResponse(String response) {
         response = response.replaceAll("[{}\"]","");
 
-        int arraySize = 3;
-        if (response.contains("author")) {
-            arraySize = 8;
-        }
+        int ideaDataLength = 10;
 
         String[] pairs = response.split(",");
-        for (int i = 0; i < pairs.length; i += arraySize) {
+        for (int i = 0; i < pairs.length; i += ideaDataLength) {
             Idea idea = new Idea();
-            for (int j = i; j < i + arraySize; j++) {
+
+            for (int j = i; j < i + ideaDataLength; j++) {
                 String[] keyValue = pairs[j].split(":");
-                if (keyValue[0].equals("title")) {
+                if (keyValue[0].equals("id")) {
+                    idea.setId(Long.valueOf(keyValue[1]));
+                }
+                else if (keyValue[0].equals("title")) {
                     idea.setTitle(keyValue[1]);
                 }
                 else if (keyValue[0].equals("context")) {
@@ -158,6 +162,8 @@ public class UserIdeasFragment extends Fragment implements ApiCallback<String>, 
             }
             ideaArrayList.add(idea);
         }
+
+        Collections.sort(ideaArrayList, Collections.reverseOrder());
         adapter.notifyDataSetChanged();
     }
 }
